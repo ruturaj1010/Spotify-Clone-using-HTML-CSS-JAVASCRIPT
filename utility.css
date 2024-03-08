@@ -1,0 +1,28 @@
+.border {
+    border: 2px solid rgb(255, 132, 0);
+    margin: 3px;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.invert {
+    filter: invert(1);
+}
+
+.bg-grey {
+    background: rgb(34, 33, 33);
+}
+
+.white {
+    color: whitesmoke;
+}

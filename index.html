@@ -1,16 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+    <style>
+    </style>
 </head>
+
 <body>
-    <div class="container">
-        
+    <div class="container flex">
+
+        <div class="left">
+
+            <section class="left-header bg-grey white">
+                <div class="logo">
+                    <img class="invert" src="Resources/logo.svg" alt="">
+                </div>
+                <div class="home">
+                    <ul class="home-list">
+                        <li><img class="invert" src="Resources/home.svg" alt="home">Home</li>
+                        <li><img class="invert" src="Resources/search.svg" alt="search">Search</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="left-main">
+                <div class="library">
+                    <nav class="lib-nav">
+                        <img src="Resources/library.svg" alt="">
+                        <span>Library</span>
+                        <img src="Resources/plus.svg" alt="">
+                    </nav>
+                </div>
+            </section>
+        </div>
+
+
+
+        <div class="right border"></div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
