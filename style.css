@@ -7,8 +7,8 @@
 }
 
 body {
-    /* background-color: black; */
-    /* color: white; */
+    background-color: black;
+    color: white;
 }
 
 .left {
@@ -61,26 +61,26 @@ body {
     gap: 14px;
 }
 
-.left-main .library {
+.left-main {
     margin: 4px;
     border: 2px solid black;
     border-radius: 7px;
-    min-height: 35vh;
+    min-height: 64.5vh;
+    position: relative;
+    overflow-x: auto;
 }
 
 .left-footer {
-    margin: 4px;
-    border: 2px solid black;
-    border-radius: 7px;
-    padding: 10px;
-    height: 25.7vh;
+    position: absolute;
+    bottom: 0;
+    padding-top: 25px;
 }
 
 .left-foot-link {
     display: flex;
     flex-wrap: wrap;
     font-size: 12px;
-    gap: 15px 50px;
+    gap: 15px 55px;
 }
 
 .left-foot-link div a {
@@ -114,4 +114,47 @@ body {
     font-weight: 600;
     border: 2px solid white;
     border-radius: 30px;
+}
+
+.right-nav {
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.signup-login {
+    align-items: center;
+    gap: 10px;
+}
+
+.front-back, .signup-login {
+    padding: 5px;
+    list-style: none;
+    font-weight: 500;
+    display: flex;
+    gap: 10px;
+}
+
+.front-back svg {
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgb(15, 14, 14);
+    color: white;
+}
+
+.signup-login .sign-up{
+    border: none;
+    background: none;
+    font-weight: 600;
+    margin-right: 25px;
+    font-size: 16px;
+    color: white;
+}
+
+.signup-login .log-in{
+    padding: 15px 35px;
+    border: 2px solid white;
+    border-radius: 166px;
+    font-weight: 600;
+    margin-right: 25px;
 }
