@@ -17,6 +17,8 @@ body {
 
 .right {
     width: 75vw;
+    border: 2px solid black;
+    margin: 4px 0px;
 }
 
 .left .logo {
@@ -67,13 +69,12 @@ body {
     border-radius: 7px;
     min-height: 64.5vh;
     position: relative;
-    overflow-x: auto;
+    overflow: hidden;
 }
 
 .left-footer {
     position: absolute;
     bottom: 0;
-    padding-top: 25px;
 }
 
 .left-foot-link {
@@ -81,10 +82,13 @@ body {
     flex-wrap: wrap;
     font-size: 12px;
     gap: 15px 55px;
+    padding: 15px;
 }
 
 .left-foot-link div a {
     color: grey;
+    text-decoration: none;
+    font-size: 11px;
 }
 
 .left-foot-lang button {
@@ -106,7 +110,7 @@ body {
     line-height: 20px;
 }
 
-.main-foot-btn button{
+.main-foot-btn button {
     padding: 15px 30px;
     background-color: white;
     color: black;
@@ -120,14 +124,11 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 5px;
+    border-radius: 5px 5px 0px 0px;
 }
 
+.front-back,
 .signup-login {
-    align-items: center;
-    gap: 10px;
-}
-
-.front-back, .signup-login {
     padding: 5px;
     list-style: none;
     font-weight: 500;
@@ -142,19 +143,40 @@ body {
     color: white;
 }
 
-.signup-login .sign-up{
+.signup-login .sign-up {
     border: none;
     background: none;
     font-weight: 600;
     margin-right: 25px;
     font-size: 16px;
-    color: white;
+    color: rgb(215, 210, 210);
 }
 
-.signup-login .log-in{
+.signup-login .log-in {
     padding: 15px 35px;
     border: 2px solid white;
     border-radius: 166px;
     font-weight: 600;
+    font-size: 14px;
     margin-right: 25px;
+}
+
+.right-main-footer {
+    background-color: rgb(31, 31, 31);
+}
+
+.right-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 14px;
+}
+
+.right-main h3 {
+    font-size: 24px;
+}
+
+.right-main h3:hover,
+.right-main p:hover {
+    text-decoration: underline;
 }
