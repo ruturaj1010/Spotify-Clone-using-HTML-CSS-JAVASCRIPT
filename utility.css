@@ -26,3 +26,19 @@
 .white {
     color: rgb(205, 200, 200);
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #222;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3c3c3c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
