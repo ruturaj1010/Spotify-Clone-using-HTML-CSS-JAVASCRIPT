@@ -48,7 +48,7 @@ body {
 }
 
 .lib-nav {
-    padding: 8px;
+    padding: 10px;
     height: auto;
 }
 
@@ -69,6 +69,15 @@ body {
     color: white;
     font-size: 17px;
     cursor: pointer;
+}
+
+.song-list {
+    margin-left: 25px;
+}
+
+.song-container .song-list li{
+    list-style-type: decimal;
+    padding: 5px;
 }
 
 .left-main {
@@ -239,4 +248,4 @@ body {
     justify-content: center;
     align-items: center;
     gap: 3vw;
-} 
+}
