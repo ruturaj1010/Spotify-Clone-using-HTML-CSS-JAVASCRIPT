@@ -40,10 +40,11 @@ const playMusic = ( track, pause = false ) => {
     if ( !pause ) {
         currentsong.play()
         play.src = "Resources/pause.svg";
+    } else {
+        play.src = "Resources/play.svg"
     }
 
-    document.querySelector( ".songinfo" ).innerHTML = decodeURI(track)
-    // document.querySelector(".songtime").innerHTML =  "00:00"
+    document.querySelector( ".songinfo" ).innerHTML = decodeURI( track )
 }
 
 async function main () {
@@ -90,23 +91,23 @@ async function main () {
     // listen for time event 
     currentsong.addEventListener( "timeupdate", () => {
         document.querySelector( ".songtime" ).innerHTML = `${formatTime( currentsong.currentTime )}/${formatTime( currentsong.duration )}`;
-        document.querySelector(".circle").style.left = (currentsong.currentTime/currentsong.duration)*100 +"%";
+        document.querySelector( ".circle" ).style.left = ( currentsong.currentTime / currentsong.duration ) * 100 + "%";
     } )
 
     // add event listener to seekbar
-    document.querySelector(".seekbar").addEventListener("click" , e=>{
-        let percent = (e.offsetX/e.target.getBoundingClientRect().width)*100
-        document.querySelector(".circle").style.left = percent + "%"
-        currentsong.currentTime = (currentsong.duration)*percent/100
-    })
+    document.querySelector( ".seekbar" ).addEventListener( "click", e => {
+        let percent = ( e.offsetX / e.target.getBoundingClientRect().width ) * 100
+        document.querySelector( ".circle" ).style.left = percent + "%"
+        currentsong.currentTime = ( currentsong.duration ) * percent / 100
+    } )
 
-    document.querySelector(".hamburger").addEventListener("click" , ()=>{
-        document.querySelector(".left").style.left = 0 +"%";
-    })
+    document.querySelector( ".hamburger" ).addEventListener( "click", () => {
+        document.querySelector( ".left" ).style.left = 0
+    } )
 
-    document.querySelector(".close").addEventListener("click" , ()=>{
-        document.querySelector(".left").style.left = -100 + "%";
-    })
+    document.querySelector( ".close" ).addEventListener( "click", () => {
+        document.querySelector( ".left" ).style.left = -100 + "%";
+    } )
 }
 
 main()
