@@ -267,13 +267,14 @@ body {
     width: 72vw;
     bottom: 15px;
     height: 50px;
+    align-items: center;
 }
 
 .main-playbar .song-btns{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5.5vh;
+    min-height: 5.5vh;
     gap: 3vw;
 }
 
@@ -286,6 +287,7 @@ body {
     border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
     background-color: white;
+    cursor: pointer;
 }
 
 .circle {
@@ -297,4 +299,80 @@ body {
     bottom: 3.2px;
     left: 0%;
     transition: left 0.5s;
+}
+
+.song-btns {
+    margin: 0 20px;
+}
+
+.song-btns img {
+    cursor: pointer;
+}
+
+.abovebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 0 40px;
+    font-size: 10px;
+}
+
+.hamburger {
+    display: none;
+}
+
+@media (max-width : 1250px) {
+    .left {
+        position: absolute;
+        left: -100%;
+        transition: all 1s ease-in-out;
+        z-index: 1;
+        width: 180px;
+    }
+
+    .right {
+        width: 100%;
+        margin: 0;
+    }
+
+    .main-playbar {
+        width: 95vw;
+        margin-left: 5px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .left-header {
+        position: relative;
+    }
+
+    .closeico {
+        position: absolute;
+        right: 6px;
+        top: 14px;
+    }
+
+    .cardContainer {
+        width: calc(100% - 20px);
+        justify-content: center;
+    }
+
+    .main-playbar {
+        height: 18vh;
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .abovebar {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        bottom: -27px;
+        gap: 10px;
+    }
 }

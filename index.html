@@ -13,8 +13,11 @@
     <div class="container flex">
 
         <div class="left">
-
+            
             <section class="left-header bg-grey white">
+                <div class="closeico invert">
+                    <img class="close" src="Resources/close.svg" alt="">
+                </div>
                 <div class="logo">
                     <img class="invert" src="Resources/logo.svg" alt="">
                 </div>
@@ -62,18 +65,25 @@
 
             <section class="right-header">
                 <nav class="right-nav flex bg-grey white">
-                    <div class="front-back">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
-                            color="#000000" fill="none">
-                            <path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
-                            color="#000000" fill="none">
-                            <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+                    <div class="flex">
+                        <img class="invert hamburger" width="30px" src="Resources/hamburger.svg" alt="">
+
+                        <div class="front-back">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="none">
+                                <path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#000000" fill="none">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
                     </div>
+
                     <div class="signup-login">
                         <button class="sign-up">Sign up</button>
                         <button class="log-in">Log in</button>
@@ -157,13 +167,15 @@
                 <div class="seekbar">
                     <div class="circle"></div>
                 </div>
-                <div class="songinfo"></div>
-                <div class="song-btns">
-                    <img class="invert" src="Resources/previoussong.svg" alt="prev">
-                    <img class="invert" src="Resources/play.svg" alt="play">
-                    <img class="invert" src="Resources/nextsong.svg" alt="next">
+                <div class="abovebar">
+                    <div class="songinfo"></div>
+                    <div class="song-btns">
+                        <img id="previous" class="invert" src="Resources/previoussong.svg" alt="prev">
+                        <img id="play" class="invert" src="Resources/pause.svg" alt="play">
+                        <img id="next" class="invert" src="Resources/nextsong.svg" alt="next">
+                    </div>
+                    <div class="songtime"></div>
                 </div>
-                <div class="songtime"></div>
             </section>
         </div>
 
