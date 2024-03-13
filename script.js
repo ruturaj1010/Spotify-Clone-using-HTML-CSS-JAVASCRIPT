@@ -1,6 +1,7 @@
 console.log( "let's start javascript" );
 
 let currentsong = new Audio();
+let songs;
 
 async function getSongs () {
     let a = await fetch( "http://127.0.0.1:3000/Songs/" );
@@ -24,7 +25,7 @@ async function getSongs () {
 
 function formatTime ( seconds ) {
     if ( isNaN( seconds ) || seconds < 0 ) {
-        return "Invalid input"
+        return "00:00"
     }
     const minutes = Math.floor( seconds / 60 );
     const remainingSeconds = Math.floor( seconds % 60 );
@@ -50,7 +51,7 @@ const playMusic = ( track, pause = false ) => {
 async function main () {
 
     // Get the list of songs
-    let songs = await getSongs();
+    songs = await getSongs();
     // console.log( songs );
     playMusic( songs[0], true )
 
@@ -85,6 +86,22 @@ async function main () {
         else {
             currentsong.pause()
             play.src = "Resources/play.svg"
+        }
+    } )
+
+    previous.addEventListener( "click", () => {
+        console.log( "previous clicked" )
+        let index = songs.indexOf( currentsong.src.split( "/" ).slice( -1 )[0] )
+        if ( index > 0 ) {
+            playMusic( songs[index - 1] )
+        }
+    } )
+
+    next.addEventListener( "click", () => {
+        console.log( "next clicked" )
+        let index = songs.indexOf( currentsong.src.split( "/" ).slice( -1 )[0] );
+        if ( ( index + 1 ) < songs.length ) {
+            playMusic( songs[index + 1] )
         }
     } )
 
