@@ -2,11 +2,13 @@ console.log( "let's start javascript" );
 
 let currentsong = new Audio();
 let songs;
+let currFolder ;
 
-async function getSongs () {
-    let a = await fetch( "http://127.0.0.1:3000/Songs/" );
+async function getSongs (folder) {
+    currFolder = folder
+    let a = await fetch( `http://127.0.0.1:3000/${currFolder}/` );
     let response = await a.text();
-    console.log( response );
+    // console.log( response );
 
     let div = document.createElement( "div" );
     div.innerHTML = response;
@@ -17,10 +19,24 @@ async function getSongs () {
     for ( let index = 0; index < as.length; index++ ) {
         const element = as[index];
         if ( element.href.endsWith( ".mp3" ) ) {
-            songs.push( element.href.split( "/Songs/" )[1] )
+            songs.push( element.href.split( `/${currFolder}/` )[1] )
         }
     }
     return songs;
+}
+
+const playMusic = ( track, pause = false ) => {
+    // let audio = new Audio("/Songs/" + track)
+    currentsong.src =  `/${currFolder}/`  + track
+
+    if ( !pause ) {
+        currentsong.play()
+        play.src = "Resources/pause.svg";
+    } else {
+        play.src = "Resources/play.svg"
+    }
+
+    document.querySelector( ".songinfo" ).innerHTML = decodeURI( track )
 }
 
 function formatTime ( seconds ) {
@@ -34,24 +50,10 @@ function formatTime ( seconds ) {
     return `${formattedMinutes}:${formattedSeconds}`;
 }
 
-const playMusic = ( track, pause = false ) => {
-    // let audio = new Audio("/Songs/" + track)
-    currentsong.src = "/Songs/" + track
-
-    if ( !pause ) {
-        currentsong.play()
-        play.src = "Resources/pause.svg";
-    } else {
-        play.src = "Resources/play.svg"
-    }
-
-    document.querySelector( ".songinfo" ).innerHTML = decodeURI( track )
-}
-
 async function main () {
 
     // Get the list of songs
-    songs = await getSongs();
+    songs = await getSongs("/songs/ncs");
     // console.log( songs );
     playMusic( songs[0], true )
 
@@ -72,7 +74,7 @@ async function main () {
     // attach eventlistener to each song
     Array.from( document.querySelector( ".song-list" ).getElementsByTagName( "li" ) ).forEach( e => {
         e.addEventListener( "click", element => {
-            console.log( e.querySelector( ".music-info" ).firstElementChild.innerHTML )
+            // console.log( e.querySelector( ".music-info" ).firstElementChild.innerHTML )
             playMusic( e.querySelector( ".music-info" ).firstElementChild.innerHTML.trim() )
         } )
     } )
@@ -90,7 +92,7 @@ async function main () {
     } )
 
     previous.addEventListener( "click", () => {
-        console.log( "previous clicked" )
+        // console.log( "previous clicked" )
         let index = songs.indexOf( currentsong.src.split( "/" ).slice( -1 )[0] )
         if ( index > 0 ) {
             playMusic( songs[index - 1] )
@@ -98,7 +100,7 @@ async function main () {
     } )
 
     next.addEventListener( "click", () => {
-        console.log( "next clicked" )
+        // console.log( "next clicked" )
         let index = songs.indexOf( currentsong.src.split( "/" ).slice( -1 )[0] );
         if ( ( index + 1 ) < songs.length ) {
             playMusic( songs[index + 1] )
@@ -125,6 +127,12 @@ async function main () {
     document.querySelector( ".close" ).addEventListener( "click", () => {
         document.querySelector( ".left" ).style.left = -100 + "%";
     } )
+
+    document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change" , (e)=>{
+        console.log(e , e.target , e.target.value)
+        currentsong.volume = parseInt(e.target.value)/100
+    })
+
 }
 
 main()
