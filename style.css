@@ -264,7 +264,7 @@ body {
     top: 140px;
     right: 25px;
     opacity: var(--a);
-    transition: 2s;
+    transition: 1s;
 }
 
 .main-playbar{
