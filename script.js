@@ -2,11 +2,9 @@ console.log( "let's start javascript" );
 
 let currentsong = new Audio();
 let songs;
-let currFolder ;
 
-async function getSongs (folder) {
-    currFolder = folder
-    let a = await fetch( `http://127.0.0.1:3000/${currFolder}/` );
+async function getSongs () {
+    let a = await fetch( "http://127.0.0.1:3000/songs/" );
     let response = await a.text();
     // console.log( response );
 
@@ -19,7 +17,7 @@ async function getSongs (folder) {
     for ( let index = 0; index < as.length; index++ ) {
         const element = as[index];
         if ( element.href.endsWith( ".mp3" ) ) {
-            songs.push( element.href.split( `/${currFolder}/` )[1] )
+            songs.push( element.href.split( "/songs/" )[1] )
         }
     }
     return songs;
@@ -27,7 +25,7 @@ async function getSongs (folder) {
 
 const playMusic = ( track, pause = false ) => {
     // let audio = new Audio("/Songs/" + track)
-    currentsong.src =  `/${currFolder}/`  + track
+    currentsong.src =  "/songs/"  + track
 
     if ( !pause ) {
         currentsong.play()
@@ -53,7 +51,7 @@ function formatTime ( seconds ) {
 async function main () {
 
     // Get the list of songs
-    songs = await getSongs("/songs/ncs");
+    songs = await getSongs();
     // console.log( songs );
     playMusic( songs[0], true )
 
