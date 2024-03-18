@@ -79,6 +79,7 @@ function formatTime ( seconds ) {
 async function DisplayAlbums () {
     let a = await fetch( "http://127.0.0.1:3000/songs/" );
     let response = await a.text();
+    
     let div = document.createElement( "div" );
     div.innerHTML = response;
     let anchors = div.getElementsByTagName( "a" )
@@ -113,7 +114,7 @@ async function DisplayAlbums () {
     Array.from( document.getElementsByClassName( "card" ) ).forEach( e => {
         // console.log(e)
         e.addEventListener( "click", async item => {
-            songs = await getSongs( `songs/${item.currentTarget.dataset.folder}` );
+            songs = await getSongs( `songs${item.currentTarget.dataset.folder}` );
         } )
     } );
 
@@ -177,9 +178,21 @@ async function main () {
 
     // for adjusting the volume of song
     document.querySelector( ".range" ).getElementsByTagName( "input" )[0].addEventListener( "change", ( e ) => {
-        console.log( e, e.target, e.target.value )
+        // console.log( e, e.target, e.target.value )
         currentsong.volume = parseInt( e.target.value ) / 100
     } )
+
+    document.querySelector(".songvolimg>img").addEventListener("click" , e=>{
+        if(e.target.src.includes("volume.svg")){
+            e.target.src = e.target.src.replace("volume.svg","mute.svg")
+            currentsong.volume = 0;
+            document.querySelector( ".range" ).getElementsByTagName( "input" )[0].value = 0;
+        } else {
+            e.target.src = e.target.src.replace("mute.svg" ,"volume.svg")
+            currentsong.volume = 0.5;
+            document.querySelector( ".range" ).getElementsByTagName( "input" )[0].value = 40;
+        }
+    })
 
 }
 
