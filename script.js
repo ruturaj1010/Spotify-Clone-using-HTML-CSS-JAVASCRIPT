@@ -92,7 +92,7 @@ async function DisplayAlbums () {
             // get the metadata of the folder
             let a = await fetch( `http://127.0.0.1:3000/songs/${folder}/info.json` );
             let response = await a.json();
-            console.log(response)
+            // console.log(response)
             let cardContainer = document.querySelector(".cardContainer")
             cardContainer.innerHTML = cardContainer.innerHTML  + `<div data-folder="${folder}" class="card">
             <div class="playbtn">
@@ -114,7 +114,7 @@ async function DisplayAlbums () {
     Array.from( document.getElementsByClassName( "card" ) ).forEach( e => {
         // console.log(e)
         e.addEventListener( "click", async item => {
-            songs = await getSongs( `songs${item.currentTarget.dataset.folder}` );
+            songs = await getSongs( `songs/${item.currentTarget.dataset.folder}` );
         } )
     } );
 
