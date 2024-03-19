@@ -387,6 +387,10 @@ input[type="range"] {
         margin: 0;
     }
 
+    .right-main-footer {
+        height: 67vh;
+    }
+
     .cardContainer .card {
         width: max-content;
     }
@@ -400,7 +404,7 @@ input[type="range"] {
     .main-playbar {
         width: 95vw;
         margin-left: 5px;
-        height: 17vh;
+        height: 20vh;
         border-radius: 7px;
     }
 
@@ -425,7 +429,7 @@ input[type="range"] {
     }
 
     .seekbar {
-        bottom: 100px;
+        bottom: 120px;
     }
 
     .abovebar {
@@ -440,6 +444,8 @@ input[type="range"] {
         text-align: center;
         margin-left: 0;
         margin-right: 2vw;
+        word-wrap: break-word;
+        width: fit-content;
     }
 
     .songtime {
