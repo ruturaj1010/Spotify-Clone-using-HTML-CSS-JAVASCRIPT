@@ -89,7 +89,7 @@ async function DisplayAlbums () {
         for (let index = 0; index < array.length; index++) {
             const e = array[index];
             
-        if ( e.href.includes( "/songs" ) ) {
+        if ( e.href.includes( "/songs" ) && !e.href.includes(".htaccess") ) {
             let folder = e.href.split( "/" ).slice( -2 )[0]
             // get the metadata of the folder
             let a = await fetch( `http://127.0.0.1:3000/songs/${folder}/info.json` );
@@ -181,8 +181,11 @@ async function main () {
 
     // for adjusting the volume of song
     document.querySelector( ".range" ).getElementsByTagName( "input" )[0].addEventListener( "change", ( e ) => {
-        // console.log( e, e.target, e.target.value )
+        // console.log( e, e.target, e.target.value , "/ 100" )
         currentsong.volume = parseInt( e.target.value ) / 100
+        if ( currentsong.volume > 0 ){
+            document.querySelector(".songvolimg>img").src = document.querySelector(".songvolimg>img").src.replace("mute.svg","volume.svg")
+        }
     } )
 
     document.querySelector(".songvolimg>img").addEventListener("click" , e=>{
